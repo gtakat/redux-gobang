@@ -1,0 +1,76 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #222;
+  height: 70px;
+  margin: 0 0 20px 0;
+  padding: 10px;
+  color: white;
+}
+
+.App-footer {
+  margin: 50px 0 0 0;
+  width: 100%;
+}
+
+#App-game {
+  text-align: center;
+  width: 703px;
+  margin: 0 auto;
+}
+
+#App-game-info {
+}
+
+#App-game-info ul {
+  display: flex;
+  height: 40px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#App-game-info-left {
+  font-weight: bold;
+  line-height: 40px;
+  padding-right: 10px;
+  text-align: right;
+  width: 50%;;
+}
+
+#App-game-info-right {
+  line-height: 40px;
+  padding-left: 10px;
+  width: 50%;
+}
+
+#App-goban {
+  background-image: url("./images/goban19.png");
+  margin: 0 auto;
+  width: 703px;
+  height: 703px;
+}
+
+.App-masu {
+  width: 37px;
+  height: 37px;
+  position: relative;
+  float: left;
+}
+
+.App-goishi-white {
+  left: 0px;
+  height: 37px;
+  width: 37px;
+  background: url("./images/goishi19.png") 0 0;
+}
+
+.App-goishi-black {
+  left: 37px;
+  height: 37px;
+  width: 37px;
+  background: url("./images/goishi19.png") -37px 0;
+}
+
