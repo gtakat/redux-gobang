@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { createState } from 'redux';
 import './App.css';
 import Judgement from './Judgement';
 import Sound from './Sound';
 
 export const Header = () => (
   <div className="App-header">
-    <h2>React Gobang</h2>
+    <h2>Redux Gobang</h2>
   </div>
 );
 
