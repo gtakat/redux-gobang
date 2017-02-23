@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { createStore } from 'redux';
+import { hitGishi, winnerDecision } from './actions';
+import * as types from './constants/ActionTypes';
 import './App.css';
 import Judgement from './Judgement';
 import Sound from './Sound';
@@ -18,11 +20,19 @@ const reducer = (state=null, action) => {
     };
   }
 
-  return state;
+  switch(action.type){
+    case types.HIT_GOISHI:
+      return;
+    case types.WINNER_DECISION:
+      return Object.assign({}, state, {
+        winner: action.winner
+      });
+    default:
+      return state;
+  }
 };
 
 const store = createStore(reducer);
-console.info(store);
 
 export const Header = () => (
   <div className="App-header">
@@ -39,11 +49,13 @@ export const Footer = () => (
 export class Gameinfo extends Component {
   render() {
     let informations = "";
-    if (this.props.winner) {
+    const state = store.getState();
+
+    if (state.winner) {
       informations =
         <ul>
           <li id="App-game-info-left">Winner! :</li>
-          <li id="App-game-info-right">{renderGoishi(this.props.winner)}</li>
+          <li id="App-game-info-right">{renderGoishi(state.winner)}</li>
         </ul>
     } else {
       informations =
@@ -92,8 +104,10 @@ export class Game extends Component {
 
   handleClick(row, col) {
 
+    const state = store.getState();
+
     // game end check
-    if (this.state.winner) {
+    if (state.winner) {
       return;
     }
 
@@ -120,9 +134,7 @@ export class Game extends Component {
     // check winner
     let isWin = this.judgement.calculateWinner(this.state.squares, current, row, col);
     if (isWin) {
-      this.setState({
-        winner: current
-      });
+      store.dispatch(winnerDecision(current));
     }
   }
 }
