@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
-import { createState } from 'redux';
+import { createStore } from 'redux';
 import './App.css';
 import Judgement from './Judgement';
 import Sound from './Sound';
+
+const reducer = (state=null, action) => {
+  if (state == null) {
+    let squares = Array(19);
+    for (let i=0; i<squares.length; i++) {
+      squares[i] = Array(19).fill(null);
+    }
+    return {
+      squares,
+      current: "black",
+      step: 1,
+      winner: null,
+    };
+  }
+
+  return state;
+};
+
+const store = createStore(reducer);
+console.info(store);
 
 export const Header = () => (
   <div className="App-header">
