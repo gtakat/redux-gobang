@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { createStore } from 'redux';
-import { hitGishi, winnerDecision } from './actions';
+import { hitGoishi, winnerDecision } from './actions';
 import * as types from './constants/ActionTypes';
 import './App.css';
 import Judgement from './Judgement';
@@ -22,7 +22,16 @@ const reducer = (state=null, action) => {
 
   switch(action.type){
     case types.HIT_GOISHI:
-      return;
+      let newSquares = state.squares.slice(0);
+      newSquares[action.row][action.col] = state.current;
+      const nextPlayer = state.current === "black" ? "white" : "black";
+
+      return Object.assign({}, state, {
+        squares: newSquares,
+        current: nextPlayer,
+        step: state.step + 1
+      });
+
     case types.WINNER_DECISION:
       return Object.assign({}, state, {
         winner: action.winner
@@ -124,6 +133,8 @@ export class Game extends Component {
 
     let current = this.state.current;
     let nextCurrent = this.state.current === "black" ? "white" : "black";
+
+    store.dispatch(hitGoishi(row, col));
 
     this.setState({
       squares: newSquares,
