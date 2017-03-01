@@ -2,16 +2,13 @@ import React, { Component } from 'react';
 
 class Gameinfo extends Component {
   render() {
-    console.info(this.props);
     let informations = "";
-    // const state = this.props;
-    const state = this.props;
 
-    if (state.winner) {
+    if (this.props.winner) {
       informations =
         <ul>
           <li id="App-game-info-left">Winner! :</li>
-          <li id="App-game-info-right">{renderGoishi(state.winner)}</li>
+          <li id="App-game-info-right">{renderGoishi(this.props.winner)}</li>
         </ul>
     } else {
       informations =

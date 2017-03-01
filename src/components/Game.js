@@ -13,12 +13,10 @@ class Game extends Component {
   }
 
   render() {
-    const state = this.props;
-    console.info(this.props);
     return (
       <div id="App-game">
-        <Gameinfo current={state.current} winner={state.winner} />
-        <Goban squares={state.squares} onClick={(row, col) => this.handleClick(row, col)} />
+        <Gameinfo current={this.props.current} winner={this.props.winner} />
+        <Goban squares={this.props.squares} onClick={(row, col) => this.handleClick(row, col)} />
       </div>
     );
   }
@@ -41,15 +39,13 @@ class Game extends Component {
     // sound play
     this.sound.play(current);
 
-    // store.dispatch(hitGoishi(row, col));
+    this.props.hitGoishi(row, col);
     state = this.props;
-
-    console.info(state);
 
     // check winner
     let isWin = this.judgement.calculateWinner(state.squares, current, row, col);
     if (isWin) {
-      // store.dispatch(winnerDecision(state.current));
+      this.props.winnerDecision(state.current);
     }
   }
 }
