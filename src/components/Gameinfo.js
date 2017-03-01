@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Goishi from './Goishi';
 
 class Gameinfo extends Component {
   render() {
@@ -8,13 +9,13 @@ class Gameinfo extends Component {
       informations =
         <ul>
           <li id="App-game-info-left">Winner! :</li>
-          <li id="App-game-info-right">{renderGoishi(this.props.winner)}</li>
+          <li id="App-game-info-right"><Goishi color={this.props.winner} /></li>
         </ul>
     } else {
       informations =
         <ul>
           <li id="App-game-info-left">Next player:</li>
-          <li id="App-game-info-right">{renderGoishi(this.props.current)}</li>
+          <li id="App-game-info-right"><Goishi color={this.props.current} /></li>
         </ul>
     }
     return (
@@ -23,16 +24,6 @@ class Gameinfo extends Component {
       </div>
     );
   }
-}
-
-function renderGoishi(color) {
-  let goishi = "";
-  if (color === "black") {
-    goishi = <div className="App-goishi-black" />
-  } else if (color === "white") {
-    goishi = <div className="App-goishi-white" />
-  }
-  return goishi;
 }
 
 export default Gameinfo;
