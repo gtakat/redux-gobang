@@ -1,19 +1,10 @@
 import React from 'react';
+import Goishi from './Goishi';
 
 const Masu = (props) => (
   <div className="App-masu" id={ `App-masu-${props.row}-${props.col}` } onClick={() => props.onClick()}>
-    {renderGoishi(props.color)}
+    <Goishi color={props.color} />
   </div>
 );
-
-function renderGoishi(color) {
-  let goishi = "";
-  if (color === "black") {
-    goishi = <div className="App-goishi-black" />
-  } else if (color === "white") {
-    goishi = <div className="App-goishi-white" />
-  }
-  return goishi;
-}
 
 export default Masu;
