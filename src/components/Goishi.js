@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 
 const Goishi = (props) => {
   if (props.color === "black") {
@@ -6,7 +6,7 @@ const Goishi = (props) => {
   } else if (props.color === "white") {
     return <div className="App-goishi-white" />
   }
-  return <div />;
+  return null;
 };
 
 export default Goishi;

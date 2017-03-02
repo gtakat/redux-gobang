@@ -15,37 +15,32 @@ class Game extends Component {
   render() {
     return (
       <div id="App-game">
-        <Gameinfo current={this.props.current} winner={this.props.winner} />
-        <Goban squares={this.props.squares} onClick={(row, col) => this.handleClick(row, col)} />
+        <Gameinfo />
+        <Goban onClick={(row, col) => this.handleClick(row, col)} />
       </div>
     );
   }
 
   handleClick(row, col) {
-    let state = this.props;
-
     // game end check
-    if (state.winner) {
+    if (this.props.winner) {
       return;
     }
 
     // check valid hit
-    if (!this.judgement.validatesHit(state, row, col)) {
+    if (!this.judgement.validatesHit(this.props, row, col)) {
       return;
     }
 
-    const current = state.current;
-
     // sound play
-    this.sound.play(current);
+    this.sound.play(this.props.current);
 
     this.props.hitGoishi(row, col);
-    state = this.props;
 
     // check winner
-    let isWin = this.judgement.calculateWinner(state.squares, current, row, col);
+    let isWin = this.judgement.calculateWinner(this.props.squares, this.props.current, row, col);
     if (isWin) {
-      this.props.winnerDecision(state.current);
+      this.props.winnerDecision(this.props.current);
     }
   }
 }

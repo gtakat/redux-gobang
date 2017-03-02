@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Masu from './Masu';
+import Masu from '../containers/Masu';
 
 class Goban extends Component {
   render() {
@@ -11,7 +11,6 @@ class Goban extends Component {
         let masu = <Masu key={key}
                          row={i}
                          col={j}
-                         color={this.props.squares[i][j]}
                          onClick={() => this.props.onClick(i, j)} />;
         squares.push(masu);
       }
