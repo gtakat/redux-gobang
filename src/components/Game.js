@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Gameinfo from '../containers/Gameinfo';
-import Goban from '../containers/Goban';
+import Goban from '../components/Goban';
 import Judgement from '../Judgement';
 import Sound from '../Sound';
 
