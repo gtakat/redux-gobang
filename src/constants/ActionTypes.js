@@ -1,2 +1,2 @@
-export const HIT_GOISHI = 'HIT_GOISHI'
-export const WINNER_DECISION = 'WINNER_DECISION'
+export const HIT_GOISHI = 'HIT_GOISHI';
+export const WINNER_DECISION = 'WINNER_DECISION';
