@@ -1,18 +1,22 @@
 import * as types from '../constants/ActionTypes';
 import judgement from '../Judgement';
 
+const initialState = () => {
+  const squares = Array(19);
+  for (let i=0; i<squares.length; i++) {
+    squares[i] = Array(19).fill(null);
+  }
+  return {
+    squares,
+    current: "black",
+    step: 1,
+    winner: null,
+  };
+}
+
 const reducer = (state=null, action) => {
   if (state == null) {
-    let squares = Array(19);
-    for (let i=0; i<squares.length; i++) {
-      squares[i] = Array(19).fill(null);
-    }
-    return {
-      squares,
-      current: "black",
-      step: 1,
-      winner: null,
-    };
+    return initialState();
   }
 
   switch(action.type){
