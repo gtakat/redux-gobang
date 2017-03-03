@@ -130,4 +130,4 @@ class Judgement {
   }
 }
 
-export default Judgement;
+export default new Judgement();
