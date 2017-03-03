@@ -27,11 +27,6 @@ const reducer = (state=null, action) => {
         step: state.step + 1
       });
 
-    case types.WINNER_DECISION:
-      return Object.assign({}, state, {
-        winner: action.winner
-      });
-
     case types.CALCULATE_WINNER:
       const isWin = judgement.calculateWinner(state.squares, action.current, action.row, action.col);
       if (isWin) {
