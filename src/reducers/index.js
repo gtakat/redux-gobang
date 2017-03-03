@@ -21,7 +21,7 @@ const reducer = (state=null, action) => {
 
   switch(action.type){
     case types.HIT_GOISHI:
-      let newSquares = state.squares.slice(0);
+      const newSquares = state.squares.slice(0);
       newSquares[action.row][action.col] = state.current;
       const nextPlayer = state.current === "black" ? "white" : "black";
 
