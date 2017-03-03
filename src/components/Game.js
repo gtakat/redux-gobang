@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import Gameinfo from '../containers/Gameinfo';
 import Goban from '../components/Goban';
-import Judgement from '../Judgement';
+import judgement from '../Judgement';
 import Sound from '../Sound';
 
 class Game extends Component {
   constructor() {
     super();
 
-    this.judgement = new Judgement();
     this.sound = new Sound();
   }
 
@@ -28,7 +27,7 @@ class Game extends Component {
     }
 
     // check valid hit
-    if (!this.judgement.validatesHit(this.props, row, col)) {
+    if (!judgement.validatesHit(this.props, row, col)) {
       return;
     }
 
@@ -38,10 +37,7 @@ class Game extends Component {
     this.props.hitGoishi(row, col);
 
     // check winner
-    let isWin = this.judgement.calculateWinner(this.props.squares, this.props.current, row, col);
-    if (isWin) {
-      this.props.winnerDecision(this.props.current);
-    }
+    this.props.calculateWinner(this.props.current, row, col);
   }
 }
 

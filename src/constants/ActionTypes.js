@@ -1,2 +1,3 @@
 export const HIT_GOISHI = 'HIT_GOISHI';
 export const WINNER_DECISION = 'WINNER_DECISION';
+export const CALCULATE_WINNER = 'CALCULATE_WINNER';
