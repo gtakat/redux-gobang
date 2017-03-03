@@ -30,6 +30,7 @@ const reducer = (state=null, action) => {
       return Object.assign({}, state, {
         winner: action.winner
       });
+
     default:
       return state;
   }
