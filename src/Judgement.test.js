@@ -1,13 +1,8 @@
 import { expect } from 'chai';
-import Judgement from './Judgement';
+import judgement from './Judgement';
 
 describe('Judgement', () => {
   let squares;
-  let judgement;
-
-  beforeAll(() => {
-    judgement = new Judgement;
-  });
 
   beforeEach(() => {
     squares = Array(19);
