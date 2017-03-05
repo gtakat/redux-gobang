@@ -12,10 +12,10 @@ class Sound {
   }
 
   play(color) {
-    if (color === "black") {
+    if (color === 'black') {
       this.soundBlack.play();
       return color;
-    } else if (color === "white") {
+    } else if (color === 'white') {
       this.soundWhite.play();
       return color;
     }

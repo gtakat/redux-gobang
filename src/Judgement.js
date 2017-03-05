@@ -60,7 +60,7 @@ class Judgement {
 
       // vertical line check
       if (squares[i][col] === color) {
-        verticalCount++
+        verticalCount++;
         if ((verticalCount === 5) && (i === 18 || (squares[i+1][col] !== color))) {
           return true;
         }

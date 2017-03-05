@@ -3,11 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "@kadira/storybook": "^2.21.0",
     "chai": "^3.5.0",
     "enzyme": "^2.7.0",
+    "eslint": "^3.17.0",
+    "eslint-plugin-react": "^6.10.0",
     "react-addons-test-utils": "^15.4.2",
-    "react-scripts": "0.8.4",
-    "@kadira/storybook": "^2.21.0"
+    "react-scripts": "0.8.4"
   },
   "dependencies": {
     "howler": "2.0.2",
@@ -23,6 +25,7 @@
     "coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "lint": "eslint src/"
   }
 }

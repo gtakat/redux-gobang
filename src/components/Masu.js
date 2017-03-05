@@ -9,7 +9,7 @@ const Masu = (props) => {
          onClick={() => props.hitGoishi(props.row, props.col)}>
       <Goishi color={color} />
     </div>
-  )
+  );
 };
 
 export default Masu;
