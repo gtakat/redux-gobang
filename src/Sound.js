@@ -23,4 +23,4 @@ class Sound {
   }
 }
 
-export default Sound;
+export default new Sound();
