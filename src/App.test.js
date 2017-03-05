@@ -73,7 +73,7 @@ describe('<Game>', () => {
       wrapper.find('#App-masu-13-2').simulate('click'); // white
     });
 
-    it("click masu already exist (don't click)", () => {
+    it('click masu already exist (don\'t click)', () => {
       wrapper.find('#App-masu-6-9').simulate('click');  // black (don't click)
       expect(wrapper.find(Goban).find('.App-goishi-black')).to.have.length(4);
     });
@@ -83,7 +83,7 @@ describe('<Game>', () => {
       expect(wrapper.find('#App-game-info-left').text()).to.equal('Winner! :');
     });
 
-    it("cilck masu after win (don't click)", () => {
+    it('cilck masu after win (don\'t click)', () => {
       wrapper.find('#App-masu-5-9').simulate('click');  // black (win)
       wrapper.find('#App-masu-5-10').simulate('click'); // white (don't click)
       expect(wrapper.find(Goban).find('.App-goishi-white')).to.have.length(4);
@@ -115,7 +115,7 @@ describe('<Masu>', () => {
 
   it('render masu none', () => {
     const wrapper = shallow(<Masu />);
-    expect(wrapper.find(".App-goishi-black").exists()).to.be.false;
-    expect(wrapper.find(".App-goishi-white").exists()).to.be.false;
+    expect(wrapper.find('.App-goishi-black').exists()).to.be.false;
+    expect(wrapper.find('.App-goishi-white').exists()).to.be.false;
   });
 });

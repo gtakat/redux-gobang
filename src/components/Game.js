@@ -7,6 +7,6 @@ const Game = () => (
     <Gameinfo />
     <Goban />
   </div>
-)
+);
 
 export default Game;

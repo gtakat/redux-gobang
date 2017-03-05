@@ -6,7 +6,7 @@ const mapStateToProps = (state) => (state);
 
 function mapDispatchToProps(dispatch) {
   return {
-    hitGoishi: (row, col) => { dispatch(hitGoishi(row, col)) }
+    hitGoishi: (row, col) => { dispatch(hitGoishi(row, col)); }
   };
 }
 

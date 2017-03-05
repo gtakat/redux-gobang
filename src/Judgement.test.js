@@ -21,7 +21,7 @@ describe('Judgement', () => {
     });
 
     it('Can not hit if it already exists', () => {
-      squares[1][2] = "black";
+      squares[1][2] = 'black';
       const state = {
         squares
       };
@@ -50,7 +50,7 @@ describe('Judgement', () => {
   describe('second hit', () => {
     let state;
     beforeAll(() => {
-      squares[9][9] = "black";
+      squares[9][9] = 'black';
       state = {
         squares,
         step: 2
@@ -69,117 +69,117 @@ describe('Judgement', () => {
   describe('calculateWinner', () => {
     describe('horizontal line', () => {
       it('4 continuous', () => {
-        squares[2].fill("black", 2, 6);
-        expect(judgement.calculateWinner(squares, "black", 2, 5)).to.be.false;
+        squares[2].fill('black', 2, 6);
+        expect(judgement.calculateWinner(squares, 'black', 2, 5)).to.be.false;
       });
 
       it('5 continuous', () => {
-        squares[2].fill("black", 2, 7);
-        expect(judgement.calculateWinner(squares, "black", 2, 6)).to.be.true;
+        squares[2].fill('black', 2, 7);
+        expect(judgement.calculateWinner(squares, 'black', 2, 6)).to.be.true;
       });
 
       it('6 continuous', () => {
-        squares[2].fill("black", 2, 8);
-        expect(judgement.calculateWinner(squares, "black", 2, 7)).to.be.false;
+        squares[2].fill('black', 2, 8);
+        expect(judgement.calculateWinner(squares, 'black', 2, 7)).to.be.false;
       });
 
       it('5 continuous and stepping 1', () => {
-        squares[2].fill("black", 2, 7);
-        squares[2][8] = "black";
-        expect(judgement.calculateWinner(squares, "black", 2, 6)).to.be.true;
+        squares[2].fill('black', 2, 7);
+        squares[2][8] = 'black';
+        expect(judgement.calculateWinner(squares, 'black', 2, 6)).to.be.true;
       });
     });
 
     describe('vertical line', () => {
       it('4 continuous', () => {
         for (let i=2; i<=5; i++) {
-          squares[i][2] = "black";
+          squares[i][2] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 5, 2)).to.be.false;
+        expect(judgement.calculateWinner(squares, 'black', 5, 2)).to.be.false;
       });
 
       it('5 continuous', () => {
         for (let i=2; i<=6; i++) {
-          squares[i][2] = "black";
+          squares[i][2] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 6, 2)).to.be.true;
+        expect(judgement.calculateWinner(squares, 'black', 6, 2)).to.be.true;
       });
 
       it('6 continuous', () => {
         for (let i=2; i<=7; i++) {
-          squares[i][2] = "black";
+          squares[i][2] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 7, 2)).to.be.false;
+        expect(judgement.calculateWinner(squares, 'black', 7, 2)).to.be.false;
       });
 
       it('5 continuous and stepping 1', () => {
         for (let i=2; i<=6; i++) {
-          squares[i][2] = "black";
+          squares[i][2] = 'black';
         }
-        squares[8][2] = "black";
-        expect(judgement.calculateWinner(squares, "black", 6, 2)).to.be.true;
+        squares[8][2] = 'black';
+        expect(judgement.calculateWinner(squares, 'black', 6, 2)).to.be.true;
       });
     });
 
     describe('slanting line (left up to right down)', () => {
       it('4 continuous', () => {
         for (let i = 2; i <= 5; i++) {
-          squares[i][i] = "black";
+          squares[i][i] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 5, 5)).to.be.false;
+        expect(judgement.calculateWinner(squares, 'black', 5, 5)).to.be.false;
       });
 
       it('5 continuous', () => {
         for (let i=2; i<=6; i++) {
-          squares[i][i] = "black";
+          squares[i][i] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 6, 6)).to.be.true;
+        expect(judgement.calculateWinner(squares, 'black', 6, 6)).to.be.true;
       });
 
       it('6 continuous', () => {
         for (let i=2; i<=7; i++) {
-          squares[i][i] = "black";
+          squares[i][i] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 7, 7)).to.be.false;
+        expect(judgement.calculateWinner(squares, 'black', 7, 7)).to.be.false;
       });
 
       it('5 continuous and stepping 1', () => {
         for (let i=2; i<=6; i++) {
-          squares[i][i] = "black";
+          squares[i][i] = 'black';
         }
-        squares[8][8] = "black";
-        expect(judgement.calculateWinner(squares, "black", 6, 6)).to.be.true;
+        squares[8][8] = 'black';
+        expect(judgement.calculateWinner(squares, 'black', 6, 6)).to.be.true;
       });
     });
 
     describe('slanting line (left down to right up)', () => {
       it('4 continuous', () => {
         for (let i = 2; i <= 5; i++) {
-          squares[15-i][i] = "black";
+          squares[15-i][i] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 10, 5)).to.be.false;
+        expect(judgement.calculateWinner(squares, 'black', 10, 5)).to.be.false;
       });
 
       it('5 continuous', () => {
         for (let i = 2; i <= 6; i++) {
-          squares[15-i][i] = "black";
+          squares[15-i][i] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 9, 6)).to.be.true;
+        expect(judgement.calculateWinner(squares, 'black', 9, 6)).to.be.true;
       });
 
       it('6 continuous', () => {
         for (let i = 2; i <= 7; i++) {
-          squares[15-i][i] = "black";
+          squares[15-i][i] = 'black';
         }
-        expect(judgement.calculateWinner(squares, "black", 8, 7)).to.be.false;
+        expect(judgement.calculateWinner(squares, 'black', 8, 7)).to.be.false;
       });
 
       it('5 continuous and stepping 1', () => {
         for (let i=2; i<=6; i++) {
-          squares[15-i][i] = "black";
+          squares[15-i][i] = 'black';
         }
-        squares[15-8][8] = "black";
-        expect(judgement.calculateWinner(squares, "black", 9, 6)).to.be.true;
+        squares[15-8][8] = 'black';
+        expect(judgement.calculateWinner(squares, 'black', 9, 6)).to.be.true;
       });
     });
   });

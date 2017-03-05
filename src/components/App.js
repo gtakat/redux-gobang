@@ -10,6 +10,6 @@ const App = () => (
     <Game />
     <Footer />
   </div>
-)
+);
 
 export default App;
