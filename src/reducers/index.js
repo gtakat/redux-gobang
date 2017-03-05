@@ -1,5 +1,6 @@
 import * as types from '../constants/ActionTypes';
 import judgement from '../Judgement';
+import sound from '../Sound';
 
 const initialState = () => {
   const squares = Array(19);
@@ -21,24 +22,37 @@ const reducer = (state=null, action) => {
 
   switch(action.type){
     case types.HIT_GOISHI:
+      // game end check
+      if (state.winner) {
+        return state;
+      }
+
+      // check valid hit
+      if (!judgement.validatesHit(state, action.row, action.col)) {
+        return state;
+      }
+
+      // sound play
+      sound.play(state.current);
+
+      // hit goishi
       const newSquares = state.squares.slice(0);
       newSquares[action.row][action.col] = state.current;
+      const currentPlayer = state.current;
       const nextPlayer = state.current === "black" ? "white" : "black";
 
-      return Object.assign({}, state, {
+      const newState = Object.assign({}, state, {
         squares: newSquares,
         current: nextPlayer,
         step: state.step + 1
       });
 
-    case types.CALCULATE_WINNER:
-      const isWin = judgement.calculateWinner(state.squares, action.current, action.row, action.col);
+      // check winner
+      const isWin = judgement.calculateWinner(state.squares, currentPlayer, action.row, action.col);
       if (isWin) {
-        return Object.assign({}, state, {
-          winner: action.current
-        });
+        newState.winner = currentPlayer;
       }
-      return state;
+      return newState;
 
     default:
       return state;

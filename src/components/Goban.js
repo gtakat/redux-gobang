@@ -10,8 +10,7 @@ class Goban extends Component {
         const key = `${i}_${j}`;
         let masu = <Masu key={key}
                          row={i}
-                         col={j}
-                         onClick={() => this.props.onClick(i, j)} />;
+                         col={j} />;
         squares.push(masu);
       }
     }
