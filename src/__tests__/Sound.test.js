@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import sound from './Sound'
+import sound from '../Sound'
 
 describe('sound', () => {
   describe('sound play', () => {
