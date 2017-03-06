@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import { expect } from 'chai'
 import Goban from '../Goban'
+import Masu from '../../containers/Masu'
 
 describe('<Goban>', () => {
   it('renders goban', () => {
