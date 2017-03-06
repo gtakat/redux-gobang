@@ -1,1 +1,1 @@
-export const HIT_GOISHI = 'HIT_GOISHI';
+export const HIT_GOISHI = 'HIT_GOISHI'
