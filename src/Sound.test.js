@@ -1,12 +1,7 @@
 import { expect } from 'chai'
-import Sound from './Sound'
+import sound from './Sound'
 
 describe('sound', () => {
-  let sound
-  beforeAll(() => {
-    sound = new Sound()
-  })
-
   describe('sound play', () => {
     it('play black', () => {
       expect(sound.play('black')).to.equal('black')
