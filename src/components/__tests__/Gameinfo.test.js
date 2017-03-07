@@ -16,4 +16,16 @@ describe('<Gameinfo> display winner', () => {
     const goishi = <Goishi color="black" />
     expect(wrapper.contains(goishi)).to.equal(true)
   })
+
+  it('next player white', () => {
+    const wrapper = shallow(<Gameinfo current="white" />)
+    const goishi = <Goishi color="white" />
+    expect(wrapper.contains(goishi)).to.equal(true)
+  })
+
+  it('next player black', () => {
+    const wrapper = shallow(<Gameinfo current="black" />)
+    const goishi = <Goishi color="black" />
+    expect(wrapper.contains(goishi)).to.equal(true)
+  })
 })
