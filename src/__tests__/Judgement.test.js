@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import judgement from './Judgement'
+import judgement from '../Judgement'
 
 describe('Judgement', () => {
   let squares
