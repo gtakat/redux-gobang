@@ -52,4 +52,12 @@ describe('<Game>', () => {
       expect(wrapper.find(Goban).find('.App-goishi-white')).to.have.length(4)
     })
   })
+
+  describe('dispatch', () => {
+    it('dispatch unknown action', () => {
+      const state = store.getState()
+      store.dispatch({type: "UNKNOWN_TYPE"})
+      expect(store.getState()).to.equal(state)
+    })
+  })
 })
