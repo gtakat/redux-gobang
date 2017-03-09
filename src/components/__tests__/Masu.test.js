@@ -5,7 +5,7 @@ import Masu from '../Masu'
 import Goishi from '../Goishi'
 
 describe('<Masu>', () => {
-  let squares = null;
+  let squares = null
 
   beforeEach(() => {
     squares = Array(19)
@@ -15,13 +15,13 @@ describe('<Masu>', () => {
   })
 
   it('render masu black', () => {
-    squares[9][9] = "black";
+    squares[9][9] = 'black'
     const wrapper = shallow(<Masu squares={squares} row="9" col="9" />)
     expect(wrapper.contains(<Goishi color="black" />)).to.equal(true)
   })
 
   it('render masu white', () => {
-    squares[9][9] = "white";
+    squares[9][9] = 'white'
     const wrapper = shallow(<Masu squares={squares} row="9" col="9" />)
     expect(wrapper.contains(<Goishi color="white" />)).to.equal(true)
   })

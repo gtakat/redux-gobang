@@ -56,7 +56,7 @@ describe('<Game>', () => {
   describe('dispatch', () => {
     it('dispatch unknown action', () => {
       const state = store.getState()
-      store.dispatch({type: "UNKNOWN_TYPE"})
+      store.dispatch({type: 'UNKNOWN_TYPE'})
       expect(store.getState()).to.equal(state)
     })
   })
